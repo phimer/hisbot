@@ -18,8 +18,8 @@ passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleis
 #add your login information
 login = 'YOUR HIS LOGIN NUMBER'
 pw = 'YOUR HIS PW'
-receiving_email = 'YOUREMAILHERE'
-sending_email = 'YOUR GMAIL ADDRESS HERE'#works with others, email function is configured for gmail
+receiving_email = 'YOUREMAILHERE' #can be any email address
+sending_email = 'YOUR GMAIL ADDRESS HERE'#works with others, email function is configured for gmail - you have to "Allow less secure apps to access your account" in gmail - https://myaccount.google.com/lesssecureapps
 sending_email_pw = 'YOUR PASSWORD OF THE SENDING EMAIL'
 
 def whatsapp(neues_modul, note):
@@ -30,7 +30,7 @@ def whatsapp(neues_modul, note):
     message = f'{neues_modul} - {note}'
 
     client.messages.create(body=message,
-                           from_='TWILIO PHONE NUMBER', to='PHONENUMBER_REC')
+                           from_='TWILIO PHONE NUMBER', to='PHONENUMBER_RECEIVING')
 
 
 def email(modul_name, note):
