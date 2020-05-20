@@ -1,18 +1,24 @@
 from selenium import webdriver
 import time
-from login_info import login, pw
 import smtplib
-from login_info import email_address, email_password
 from twilio.rest import Client
-from login_info import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 from termcolor import colored
+
+
+from login_info import login, pw
+from login_info import email_address, email_password
+from login_info import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 
 passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleistung: Wirtschaftsinformatik', 'Prüfungsleistung: Objektorientierte Programmierung', 'Prüfungsleistung: Betriebswirtschaftslehre 1+2', 'Prüfungsleistung: E-Business', 'Prüfungsleistung: Datenbanken', 'Prüfungsleistung: Analysis', 'Prüfungsleistung: Englisch', 'Prüfungsleistung: Data Warehouses', 'Rechnungswesen', "Wirtschaftsprivatrecht",
                        'Datenbanken', 'Analysis', 'Englisch', 'Data Warehouses', 'E-Business', 'Bisher erbrachte Credits und vorläufige Durchschnittsnote der PO-Version 6215', 'Prüfungsleistung: Software Engineering', 'Software Engineering', 'Statistik', 'Objektorientierte Programmierung', 'Wirtschaftsinformatik', 'Betriebswirtschaftslehre']
 #add passed courses for initial startup, script will save new passed courses automaticaly
 
+
+login = 'YOUR HIS LOGIN NUMBER'
+pw = 'YOUR HIS PW'
 receiving_email = 'YOUREMAILHERE'
 sending_email = 'YOUR GMAIL ADDRESS HERE'#works with others, email function is configured for gmail
+sending_email_pw = 'YOUR PASSWORD OF THE SENDING EMAIL'
 
 def whatsapp(neues_modul, note):
 
@@ -22,7 +28,7 @@ def whatsapp(neues_modul, note):
     message = f'{neues_modul} - {note}'
 
     client.messages.create(body=message,
-                           from_='whatsapp:+14155238886', to='whatsapp:+4917645951873')
+                           from_='TWILIO PHONE NUMBER', to='PHONENUMBER_REC')
 
 
 def email(modul_name, note):
@@ -32,7 +38,7 @@ def email(modul_name, note):
         smtp.starttls()
         smtp.ehlo()
 
-        smtp.login(email_address, email_password)
+        smtp.login(sending_email, email_password)
 
         subject = f'{modul_name} jetzt online'
         body = f'{modul_name} - {note}'
@@ -102,20 +108,6 @@ class Bot():
                     # print(f'exception {i} triggered')
                     pass
 
-            # unwichtig(list printing)
-            # print()
-            # if len(name_list) == 0:
-            #     a = 'name_list is empty'
-            #     print(f"\nList: {a}")
-            # else:
-            #     print('List:')
-
-            # for elem in name_list:
-            #     print(elem)
-            # print()
-            # for ele in passed_courses_list:
-            #     print(ele)
-            # wichtig, adds modul to passed_courses_list
 
             spl = ''  # split
             if len(name_list) > 0:
@@ -164,10 +156,8 @@ class Bot():
 while(True):
     bot = Bot()
     bot.main()
-    time.sleep(600)
+    time.sleep(600) #checks every 10 minutes
 
 # bot = Bot()
 # bot.main()
 
-# //*[@id="wrapper"]/div[6]/div[2]/form/table[2]/tbody/tr[2]/td[6]
-# //*[@id="wrapper"]/div[6]/div[2]/form/table[2]/tbody/tr[3]/td[6]
