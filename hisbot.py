@@ -5,15 +5,17 @@ from twilio.rest import Client
 from termcolor import colored
 
 
-from login_info import login, pw
-from login_info import email_address, email_password
-from login_info import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
+# from login_info import login, pw
+# from login_info import email_address, email_password
+# from login_info import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 
+
+#add passed courses for initial startup, script will save new passed courses automaticaly
 passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleistung: Wirtschaftsinformatik', 'Prüfungsleistung: Objektorientierte Programmierung', 'Prüfungsleistung: Betriebswirtschaftslehre 1+2', 'Prüfungsleistung: E-Business', 'Prüfungsleistung: Datenbanken', 'Prüfungsleistung: Analysis', 'Prüfungsleistung: Englisch', 'Prüfungsleistung: Data Warehouses', 'Rechnungswesen', "Wirtschaftsprivatrecht",
                        'Datenbanken', 'Analysis', 'Englisch', 'Data Warehouses', 'E-Business', 'Bisher erbrachte Credits und vorläufige Durchschnittsnote der PO-Version 6215', 'Prüfungsleistung: Software Engineering', 'Software Engineering', 'Statistik', 'Objektorientierte Programmierung', 'Wirtschaftsinformatik', 'Betriebswirtschaftslehre']
-#add passed courses for initial startup, script will save new passed courses automaticaly
 
 
+#add your login information
 login = 'YOUR HIS LOGIN NUMBER'
 pw = 'YOUR HIS PW'
 receiving_email = 'YOUREMAILHERE'
@@ -38,7 +40,7 @@ def email(modul_name, note):
         smtp.starttls()
         smtp.ehlo()
 
-        smtp.login(sending_email, email_password)
+        smtp.login(sending_email, sending_email_pw)
 
         subject = f'{modul_name} jetzt online'
         body = f'{modul_name} - {note}'
