@@ -32,7 +32,7 @@ def whatsapp(neues_modul, note):
 
     client.messages.create(from_='whatsapp:+14155238886',
                            body=text_message,
-                           to='whatsapp:+4917645951873')
+                           to='whatsapp:YOURPHONENUMBER')
 
 
 def email(modul_name, note):
