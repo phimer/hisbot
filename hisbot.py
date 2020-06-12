@@ -8,21 +8,23 @@ from termcolor import colored
 from login_info import login, pw
 from login_info import sending_email, sending_email_pw
 from login_info import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
+from login_info import receiving_email, my_phone, twilio_phone
 
 
 # add passed courses for initial startup, script will save new passed courses automaticaly
-passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleistung: Wirtschaftsinformatik', 'Prüfungsleistung: Objektorientierte Programmierung', 'Prüfungsleistung: Betriebswirtschaftslehre 1+2', 'Prüfungsleistung: E-Business', 'Prüfungsleistung: Datenbanken', 'Prüfungsleistung: Analysis', 'Prüfungsleistung: Englisch', 'Prüfungsleistung: Data Warehouses', 'Rechnungswesen', "Wirtschaftsprivatrecht",
+passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleistung: Englisch', 'Prüfungsleistung: Wirtschaftsinformatik', 'Prüfungsleistung: Objektorientierte Programmierung', 'Prüfungsleistung: Betriebswirtschaftslehre 1+2', 'Prüfungsleistung: E-Business', 'Prüfungsleistung: Datenbanken', 'Prüfungsleistung: Analysis', 'Prüfungsleistung: Data Warehouses', 'Rechnungswesen', "Wirtschaftsprivatrecht",
                        'Datenbanken', 'Analysis', 'Englisch', 'Data Warehouses', 'E-Business', 'Bisher erbrachte Credits und vorläufige Durchschnittsnote der PO-Version 6215', 'Prüfungsleistung: Software Engineering', 'Software Engineering', 'Statistik', 'Objektorientierte Programmierung', 'Wirtschaftsinformatik', 'Betriebswirtschaftslehre']
 
 
 # # add your login information
 # login = 'YOUR HIS LOGIN NUMBER'
 # pw = 'YOUR HIS PW'
-receiving_email = ''  # can be any email address
+#receiving_email = 'YOUREMAILHERE'  # can be any email address
 # # works with others, email function is configured for gmail - you have to "Allow less secure apps to access your account" in gmail - https://myaccount.google.com/lesssecureapps
 # sending_email = 'YOUR GMAIL ADDRESS HERE'
 # sending_email_pw = 'YOUR PASSWORD OF THE SENDING EMAIL'
-
+# twilio_phone = ''
+# my_phone = '' #FORMAT: 'whatsapp:+491773234234'
 
 def whatsapp(neues_modul, note):
 
@@ -30,9 +32,9 @@ def whatsapp(neues_modul, note):
 
     text_message = f'{neues_modul} - {note}'
 
-    client.messages.create(from_='whatsapp:+14155238886',
+    client.messages.create(from_=twilio_phone,
                            body=text_message,
-                           to='whatsapp:YOURPHONENUMBER')
+                           to=my_phone) 
 
 
 def email(modul_name, note):
@@ -141,10 +143,10 @@ class Bot():
                 except:
                     # print(f'bottom exception {i} triggered')
                     pass
-
+            
             if len(name_list) > 0:
                 print(colored(f"NEUE NOTE IM HIS - {spl} - {note}", "red"))
-                email(spl, note)
+                #email(spl, note)
                 whatsapp(spl, note)
             else:
                 print("keine neue Note")
