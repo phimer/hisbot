@@ -5,32 +5,34 @@ from twilio.rest import Client
 from termcolor import colored
 
 
-# from login_info import login, pw
-# from login_info import email_address, email_password
-# from login_info import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
+from login_info import login, pw
+from login_info import email_address, email_password
+from login_info import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 
 
-#add passed courses for initial startup, script will save new passed courses automaticaly
+# add passed courses for initial startup, script will save new passed courses automaticaly
 passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleistung: Wirtschaftsinformatik', 'Prüfungsleistung: Objektorientierte Programmierung', 'Prüfungsleistung: Betriebswirtschaftslehre 1+2', 'Prüfungsleistung: E-Business', 'Prüfungsleistung: Datenbanken', 'Prüfungsleistung: Analysis', 'Prüfungsleistung: Englisch', 'Prüfungsleistung: Data Warehouses', 'Rechnungswesen', "Wirtschaftsprivatrecht",
                        'Datenbanken', 'Analysis', 'Englisch', 'Data Warehouses', 'E-Business', 'Bisher erbrachte Credits und vorläufige Durchschnittsnote der PO-Version 6215', 'Prüfungsleistung: Software Engineering', 'Software Engineering', 'Statistik', 'Objektorientierte Programmierung', 'Wirtschaftsinformatik', 'Betriebswirtschaftslehre']
 
 
-#add your login information
+# add your login information
 login = 'YOUR HIS LOGIN NUMBER'
 pw = 'YOUR HIS PW'
-receiving_email = 'YOUREMAILHERE' #can be any email address
-sending_email = 'YOUR GMAIL ADDRESS HERE'#works with others, email function is configured for gmail - you have to "Allow less secure apps to access your account" in gmail - https://myaccount.google.com/lesssecureapps
+receiving_email = 'YOUREMAILHERE'  # can be any email address
+# works with others, email function is configured for gmail - you have to "Allow less secure apps to access your account" in gmail - https://myaccount.google.com/lesssecureapps
+sending_email = 'YOUR GMAIL ADDRESS HERE'
 sending_email_pw = 'YOUR PASSWORD OF THE SENDING EMAIL'
+
 
 def whatsapp(neues_modul, note):
 
-    # client credentials are read from TWILIO_ACCOUNT_SID and AUTH_TOKEN
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
-    message = f'{neues_modul} - {note}'
+    text_message = f'{neues_modul} - {note}'
 
-    client.messages.create(body=message,
-                           from_='TWILIO PHONE NUMBER', to='PHONENUMBER_RECEIVING')
+    client.messages.create(from_='whatsapp:+14155238886',
+                           body=text_message,
+                           to='whatsapp:+4917645951873')
 
 
 def email(modul_name, note):
@@ -110,7 +112,6 @@ class Bot():
                     # print(f'exception {i} triggered')
                     pass
 
-
             spl = ''  # split
             if len(name_list) > 0:
                 neues_modul = name_list.__getitem__(0)
@@ -144,7 +145,7 @@ class Bot():
             if len(name_list) > 0:
                 print(colored(f"NEUE NOTE IM HIS - {spl} - {note}", "red"))
                 email(spl, note)
-                # whatsapp(neues_modul, note)
+                whatsapp(spl, note)
             else:
                 print("keine neue Note")
 
@@ -158,8 +159,7 @@ class Bot():
 while(True):
     bot = Bot()
     bot.main()
-    time.sleep(600) #checks every 10 minutes
+    time.sleep(600)  # checks every 10 minutes
 
 # bot = Bot()
 # bot.main()
-
