@@ -6,7 +6,7 @@ from termcolor import colored
 
 
 from login_info import login, pw
-from login_info import email_address, email_password
+from login_info import sending_email, sending_email_pw
 from login_info import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
 
 
@@ -15,13 +15,13 @@ passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleis
                        'Datenbanken', 'Analysis', 'Englisch', 'Data Warehouses', 'E-Business', 'Bisher erbrachte Credits und vorläufige Durchschnittsnote der PO-Version 6215', 'Prüfungsleistung: Software Engineering', 'Software Engineering', 'Statistik', 'Objektorientierte Programmierung', 'Wirtschaftsinformatik', 'Betriebswirtschaftslehre']
 
 
-# add your login information
-login = 'YOUR HIS LOGIN NUMBER'
-pw = 'YOUR HIS PW'
-receiving_email = 'YOUREMAILHERE'  # can be any email address
-# works with others, email function is configured for gmail - you have to "Allow less secure apps to access your account" in gmail - https://myaccount.google.com/lesssecureapps
-sending_email = 'YOUR GMAIL ADDRESS HERE'
-sending_email_pw = 'YOUR PASSWORD OF THE SENDING EMAIL'
+# # add your login information
+# login = 'YOUR HIS LOGIN NUMBER'
+# pw = 'YOUR HIS PW'
+receiving_email = ''  # can be any email address
+# # works with others, email function is configured for gmail - you have to "Allow less secure apps to access your account" in gmail - https://myaccount.google.com/lesssecureapps
+# sending_email = 'YOUR GMAIL ADDRESS HERE'
+# sending_email_pw = 'YOUR PASSWORD OF THE SENDING EMAIL'
 
 
 def whatsapp(neues_modul, note):
