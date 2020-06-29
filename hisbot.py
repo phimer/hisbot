@@ -23,7 +23,7 @@ passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleis
 # # works with others, email function is configured for gmail - you have to "Allow less secure apps to access your account" in gmail - https://myaccount.google.com/lesssecureapps
 # sending_email = 'YOUR GMAIL ADDRESS HERE'
 # sending_email_pw = 'YOUR PASSWORD OF THE SENDING EMAIL'
-# twilio_phone = ''
+# twilio_phone = '' #FORMAT: 'whatsapp:+491773234234'
 # my_phone = ''
 
 def whatsapp(neues_modul, note):
