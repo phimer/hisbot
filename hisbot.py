@@ -5,6 +5,10 @@ from twilio.rest import Client
 from termcolor import colored
 
 
+from login_info import login, pw
+from login_info import sending_email, sending_email_pw
+from login_info import TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN
+from login_info import receiving_email, my_phone, twilio_phone
 
 # add passed courses for initial startup, script will save new passed courses automaticaly
 passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleistung: Englisch', 'Prüfungsleistung: Wirtschaftsinformatik', 'Prüfungsleistung: Objektorientierte Programmierung', 'Prüfungsleistung: Betriebswirtschaftslehre 1+2', 'Prüfungsleistung: E-Business', 'Prüfungsleistung: Datenbanken', 'Prüfungsleistung: Analysis', 'Prüfungsleistung: Data Warehouses', 'Rechnungswesen', "Wirtschaftsprivatrecht",
