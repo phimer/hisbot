@@ -24,7 +24,7 @@ passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleis
 # sending_email = 'YOUR GMAIL ADDRESS HERE'
 # sending_email_pw = 'YOUR PASSWORD OF THE SENDING EMAIL'
 # twilio_phone = ''
-# my_phone = '' #FORMAT: 'whatsapp:+491773234234'
+# my_phone = ''
 
 def whatsapp(neues_modul, note):
 
