@@ -19,7 +19,7 @@ passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleis
 # # add your login information
 # login = 'YOUR HIS LOGIN NUMBER'
 # pw = 'YOUR HIS PW'
-#receiving_email = 'YOUREMAILHERE'  # can be any email address
+# receiving_email = 'YOUREMAILHERE'  # can be any email address
 # # works with others, email function is configured for gmail - you have to "Allow less secure apps to access your account" in gmail - https://myaccount.google.com/lesssecureapps
 # sending_email = 'YOUR GMAIL ADDRESS HERE'
 # sending_email_pw = 'YOUR PASSWORD OF THE SENDING EMAIL'
@@ -34,7 +34,7 @@ def whatsapp(neues_modul, note):
 
     client.messages.create(from_=twilio_phone,
                            body=text_message,
-                           to=my_phone) 
+                           to=my_phone)
 
 
 def email(modul_name, note):
@@ -143,10 +143,10 @@ class Bot():
                 except:
                     # print(f'bottom exception {i} triggered')
                     pass
-            
+
             if len(name_list) > 0:
                 print(colored(f"NEUE NOTE IM HIS - {spl} - {note}", "red"))
-                #email(spl, note)
+                email(spl, note)
                 whatsapp(spl, note)
             else:
                 print("keine neue Note")
