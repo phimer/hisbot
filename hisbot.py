@@ -12,7 +12,7 @@ from login_info import receiving_email, my_phone, twilio_phone
 
 # add passed courses for initial startup, script will save new passed courses automaticaly
 passed_courses_list = ['Prüfungsleistung:Wirtschaftsinformatik', 'Prüfungsleistung: Englisch', 'Prüfungsleistung: Wirtschaftsinformatik', 'Prüfungsleistung: Objektorientierte Programmierung', 'Prüfungsleistung: Betriebswirtschaftslehre 1+2', 'Prüfungsleistung: E-Business', 'Prüfungsleistung: Datenbanken', 'Prüfungsleistung: Analysis', 'Prüfungsleistung: Data Warehouses', 'Rechnungswesen', "Wirtschaftsprivatrecht",
-                       'Datenbanken', 'Analysis', 'Englisch', 'Data Warehouses', 'E-Business', 'Bisher erbrachte Credits und vorläufige Durchschnittsnote der PO-Version 6215', 'Prüfungsleistung: Software Engineering', 'Software Engineering', 'Statistik', 'Objektorientierte Programmierung', 'Wirtschaftsinformatik', 'Betriebswirtschaftslehre']
+                       'Datenbanken', 'Analysis', 'Englisch', 'Data Warehouses', 'E-Business', 'Bisher erbrachte Credits und vorläufige Durchschnittsnote der PO-Version 6215', 'Prüfungsleistung: Software Engineering', 'Software Engineering', 'Statistik', 'Objektorientierte Programmierung', 'Wirtschaftsinformatik', 'Betriebswirtschaftslehre', 'Intercultural Communication', 'Prüfungsleistung: Intercultural Communication', 'Algebra', 'Prüfungsleistung: Algebra', 'Krisenmanagement - Ursachen, Vorbeugung und Bewältigung', 'Interdisziplinäres Studium Generale']
 
 
 # # add your login information
