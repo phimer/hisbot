@@ -54,6 +54,8 @@ def email(modul_name, note):
         # (from, to, msg)
         smtp.sendmail(sending_email, receiving_email, msg)
 
+    print(colored('E-Mail sent', 'green'))
+
 
 class Bot():
 
@@ -146,7 +148,7 @@ class Bot():
             if len(name_list) > 0:
                 print(colored(f"NEUE NOTE IM HIS - {spl} - {note}", "red"))
                 email(spl, note)
-                whatsapp(spl, note)
+                # whatsapp(spl, note)
             else:
                 print("keine neue Note")
 
